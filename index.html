@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grande Filipino Art Exhibition – Home</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #fff7f2, #e9d6ff 45%, #c8b4ff 90%);
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    position: relative;
+}
+
+/* Moving gradient glow */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 120deg,
+        rgba(255,247,180,0.5),
+        rgba(255,220,120,0.5),
+        rgba(255,160,220,0.5),
+        rgba(255,247,180,0.5)
+    );
+    filter: blur(90px);
+    animation: glowSpin 24s linear infinite;
+    z-index: -4;
+}
+@keyframes glowSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Cinematic spotlight */
+.spotlight {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 100%;
+    height: 140%;
+    background: radial-gradient(ellipse at center,
+        rgba(255,255,255,0.35),
+        transparent 70%
+    );
+    transform: translateX(-50%);
+    filter: blur(20px);
+}
+/* Light rays */
+.light-rays {
+    position: absolute;
+    inset: -200px;
+    /* FIX: Inserted the correct background URL */
+    background: url('https://pngtree.com/freebackground/yellow-stage-light-effect-disco-background_1232351.html');
+    background-size: cover;
+    opacity: 0.12;
+    animation: raysMove 18s ease-in-out infinite alternate;
+    pointer-events: none;
+
+}
+@keyframes raysMove {
+    0% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1.2) rotate(12deg); }
+}
+
+/* Particle dust */
+#particles div {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    filter: blur(1.5px);
+    animation: rise 12s linear infinite;
+}
+@keyframes rise {
+    0% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    100% {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* GRAND CONTAINER */
+.center-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 2s ease forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* GOLDEN RECTANGULAR CREST */
+.crest {
+    width: clamp(260px, 28vw, 500px);
+    padding: clamp(20px, 3vw, 40px);
+    border-radius: 25px;
+    border: 6px solid rgba(255, 210, 40, 0.95);
+    background: linear-gradient(135deg, #fffbe8, #f2d98f, #caa035);
+    box-shadow:
+        0 0 25px rgba(255,210,40,0.8),
+        inset 0 0 20px rgba(255,180,0,0.7),
+        0 0 60px rgba(255,200,0,0.5);
+    animation: crestPulse 5s infinite ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+@keyframes crestPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+
+.crest::after {
+    content: "Ralph P. Bayubay    BSECE 3C";
+    white-space: pre-line;
+    font-size: clamp(16px, 2vw, 32px);
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: #4c2c00;
+}
+
+/* GRAND TITLE */
+.title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(32px, 5vw, 70px);
+    font-weight: 800;
+    color: #3a0052;
+    text-shadow:
+        0 3px 10px rgba(0,0,0,0.25),
+        0 0 20px rgba(255,200,0,0.6);
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: clamp(16px, 2vw, 24px);
+    color: #4c3a63;
+    margin-bottom: 60px;
+    font-weight: 300;
+}
+
+/* BUTTONS */
+.grand-btn {
+    display: block;
+    width: clamp(220px, 30vw, 420px);
+    padding: clamp(16px, 2vw, 24px);
+    margin: 20px auto;
+    text-decoration: none;
+    color: white;
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border-radius: 60px;
+    background: linear-gradient(135deg, #4a0078, #9622ff, #ffcf5c);
+    background-size: 300% 300%;
+    animation: buttonGlow 8s ease infinite;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+@keyframes buttonGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.grand-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.grand-btn::after {
+    content: "";
+    position: absolute;
+    left: -60px;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    background: rgba(255,255,255,0.5);
+    transform: skewX(-25deg);
+    transition: 0.4s;
+}
+.grand-btn:hover::after {
+    left: 130%;
+}
+</style>
+</head>
+
+<body>
+
+<div class="spotlight"></div>
+<div class="light-rays"></div>
+<div id="particles"></div>
+
+<div class="center-wrap">
+    <div class="crest"></div>
+
+    <div class="title">READINGS IN PHILIPPINE HISTORY</div>
+    <div class="subtitle">A simple viewing, learning, and understanding of some of the Philippines' finest paintings and artifacts.</div>
+
+    <a href="paintings.html" class="grand-btn">🎨 EXPLORE PAINTINGS</a>
+    <a href="artifacts.html" class="grand-btn">🏺 EXPLORE ARTIFACTS</a>
+</div>
+
+<script>
+const p = document.getElementById("particles");
+for (let i = 0; i < 50; i++) {
+    let dust = document.createElement("div");
+    dust.style.left = Math.random()*100+"vw";
+    dust.style.animationDelay = Math.random()*10+"s";
+    dust.style.opacity = Math.random();
+    p.appendChild(dust);
+}
+</script>
+
+</body>
+</html>
